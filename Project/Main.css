@@ -1,0 +1,239 @@
+:root {
+    --ultra-blue: #0390fc;
+    --bright-orange: #eb9834;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--ultra-blue);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bright-orange);
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    /* Center the content vertically */
+    align-items: center;
+    /* Center the content horizontally */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    margin: auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label,
+select,
+input[type="submit"],
+button,
+#password {
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+select {
+    width: 100%;
+}
+
+input[type="submit"],
+.file-box,
+.file-input,
+.copy-button {
+    cursor: pointer;
+    background-color: var(--ultra-blue);
+    color: white;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover,
+button:hover,
+.copy-button:hover {
+    background-color: white;
+    color: var(--ultra-blue);
+}
+
+.progress-bar {
+    background-color: white;
+    border: 2px solid var(--bright-orange);
+    border-radius: 5px;
+    height: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative; /* Add this to allow positioning of the percentage text */
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--ultra-blue);
+    width: 0;
+    transition: width 0.3s;
+}
+
+.choose-file {
+    margin-bottom: 10px;
+}
+
+.choose-file label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.choose-file .file-box {
+    display: inline-block;
+    background-color: var(--ultra-blue);
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.choose-file {
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+}
+
+.choose-file .file-box:hover {
+    background-color: white;
+    color: var(--ultra-blue)
+}
+
+.file-input {
+    display: none;
+}
+
+.file-name:hover {
+    color: var(--ultra-blue);
+    cursor: pointer;
+}
+
+.file-box {
+    width: 40%;
+}
+
+.file-name {
+    justify-self: center;
+}
+
+.url {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--bright-orange);
+    border: 2px solid var(--ultra-blue);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.url-box {
+    display: inline-block;
+    color: white;
+}
+
+.copy-button {
+    width: 100px;
+    /* Set a fixed width for the button */
+    height: 40px;
+}
+
+#password {
+    width: 96.5%;
+    cursor: pointer;
+
+}
+
+select {
+    cursor: pointer;
+}
+
+.header-container {
+    background-color: var(--bright-orange);
+    padding: 10px;
+    border-radius: 10px;
+    /* Rounded corners for all corners */
+    position: fixed;
+    /* Fix the header at the top of the screen */
+    top: 0;
+    left: 50%;
+    /* Move the header to the center horizontally */
+    transform: translateX(-50%);
+    /* Center the header horizontally */
+    width: 95%;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    max-width: 600px;
+    /* Limit the menu width to match the container */
+    margin: 0 auto;
+    /* Center the menu inside the header */
+}
+
+
+.menu li {
+    margin: 0 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: var(--ultra-blue);
+}
+
+.menu a.active {
+    background-color: var(--ultra-blue);
+}
+
+#percent {
+    color: var(--bright-orange);
+    position: absolute;
+    transform: translate(-50%, -50%); /* Center the percentage text */
+}
+
+  #dataSpeed{
+    color: var(--ultra-blue);
+    font-size: 16px;
+    margin-top: 200px;
+  }
+
+@media screen and (max-width: 600px) {
+    .header-container {
+        width: 75%;
+    }
+}

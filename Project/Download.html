@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <div id="header-container"></div>
+    <div id="download-container"></div>
+</head>
+
+<body>
+    <div class="container">
+        <h1>File Upload and Download</h1>
+        <label>Wanna share?</label> <br>
+            <button class="copy-button">Copy link</button>
+
+        <form action="Download.php" method="post" enctype="multipart/form-data">
+            <label id="filename">Filename</label>
+            <input type="submit" value="Download">
+            <label id="expires">Expires in: 30m</label>
+        </form>
+    </div>
+
+    <script src="DownloadPage.js"></script>
+    <script src="Load.js"></script>
+</body>
+
+</html>

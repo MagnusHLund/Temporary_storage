@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>File Upload</title>
+</head>
+
+<body>
+    <div id="header-container"></div>
+    <div class="container">
+        <h1>File Upload</h1>
+        <form id="upload-form" enctype="multipart/form-data">
+            <div class="choose-file">
+                <label for="file">Select your zip file:</label>
+                <div class="file-box">
+                    <input type="file" name="file" id="file" accept=".zip" required>
+                    <label class="file-name" for="file" id="file-text">Choose File</label>
+                </div>
+            </div>
+            <label class="file-input" for="expiration">Select Expiration:</label>
+            <select name="expiration" id="expiration" required>
+                <option value="1">1 day</option>
+                <option value="2">2 days</option>
+                <option value="3">3 days</option>
+                <option value="4">4 days</option>
+                <option value="5">5 days</option>
+                <option value="6">6 days</option>
+                <option value="7">7 days</option>
+                <option value="30">30 days</option>
+                <option value="forever">Forever</option>
+            </select>
+
+            <div id="password-container">
+
+            </div>
+
+            <input type="submit" value="Upload">
+        </form>
+        <div class="progress-bar">
+            <label id="percent" class="percent">0%</label>
+            <div class="progress" id="progress"></div>
+        </div>
+        <label id="dataSpeed"></label>
+    </div>
+
+    <script src="Forever.js"></script>
+    <script src="Filename.js"></script>
+    <script src="Load.js"></script>
+    <script src="Progress.js"></script> 
+</body>
+
+</html>
