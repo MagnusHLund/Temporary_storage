@@ -15,13 +15,22 @@
     <div class="container">
         <h1>File Upload and Download</h1>
         <label>Wanna share?</label> <br>
-            <button class="copy-button">Copy link</button>
+        <button class="copy-button">Copy link</button>
 
-        <form action="Download.php" method="post" enctype="multipart/form-data">
+        <div class="formData">
+            <label id="filename">Filename</label>
+            <button id="downloadBtn" class="downloadFile">Download</button>
+
+            <label id="expires">Expires in: 30m</label>
+        </div>
+
+        <!-- old download section - can be deleted -->
+
+        <!-- <form action="Download.php" method="post" enctype="multipart/form-data">
             <label id="filename">Filename</label>
             <input type="submit" value="Download">
             <label id="expires">Expires in: 30m</label>
-        </form>
+        </form> -->
     </div>
 
     <script src="DownloadPage.js"></script>

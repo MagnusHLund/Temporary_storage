@@ -1,17 +1,23 @@
 const urlButton = document.querySelector('.copy-button');
-const filename = document.getElementById("filename");
-const expires = document.getElementById("expires");
+const filename = document.getElementById('filename');
+const expires = document.getElementById('expires');
+const downloadBtn = document.getElementById('downloadBtn');
+
+// file path
+let fileToDownload = '';
 
 function OnStartup() {
     // Call the PHP file using AJAX
     $.ajax({
         url: "Download.php",
         method: "GET",
-        //dataType: "json", // Add this line to expect JSON response
+        // dataType: "json", // Add this line to expect JSON response
         data: { file: getUrlParam("file") }, // Pass the file identifier as a parameter
         success: function (response) {
-            console.log(response)
+            console.log(response);
             if (response.file_name) {
+
+                fileToDownload = response['file_path'];
                 // File found, update labels with the received data
                 $("#filename").text(response.file_name);
                 $("#expires").text("Expires in: " + formatTimeRemaining(response));
@@ -38,7 +44,6 @@ function formatTimeRemaining(response) {
     return `${days_remaining} days, ${hours_remaining} hours, ${minutes_remaining} minutes, ${seconds_remaining} seconds`;
 }
 
-
 OnStartup();
 
 function CopyUrl() {
@@ -61,3 +66,6 @@ function changeButtonLabel() {
 
 urlButton.addEventListener('mouseleave', changeButtonLabel);
 
+downloadBtn.addEventListener('click', function () {
+    window.location.href = fileToDownload;
+});

@@ -40,6 +40,11 @@ form {
     flex-direction: column;
 }
 
+.formData {
+    display: flex;
+    flex-direction: column;
+}
+
 label,
 select,
 input[type="submit"],
@@ -59,7 +64,8 @@ select {
 input[type="submit"],
 .file-box,
 .file-input,
-.copy-button {
+.copy-button,
+.downloadFile {
     cursor: pointer;
     background-color: var(--ultra-blue);
     color: white;
