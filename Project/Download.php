@@ -15,14 +15,13 @@ if (isset($_GET['file'])) {
 
     // Create a database connection
     $conn = new mysqli($servername, $username, $password, $dbname, $port);
-
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
     // Prepare the SQL statement to find the matching download_url
-    $sql = "SELECT file_name, expiration_date FROM uploaded_files WHERE download_url = '$file_identifier'";
+    $sql = "SELECT file_name, expiration_date, file_path FROM uploaded_files WHERE download_url LIKE 'http://localhost/downloads/$file_identifier.zip'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -30,6 +29,7 @@ if (isset($_GET['file'])) {
         $row = $result->fetch_assoc();
         $file_name = $row['file_name'];
         $expiration_date = $row['expiration_date'];
+        $file_path = $row['file_path'];
 
         // Calculate the time remaining before expiration
         $current_time = time();
@@ -47,6 +47,7 @@ if (isset($_GET['file'])) {
         // Prepare the response data
         $response = array(
             'file_name' => $file_name,
+            'file_path' => $file_path,
             'days_remaining' => $days_remaining,
             'hours_remaining' => $hours_remaining,
             'minutes_remaining' => $minutes_remaining,
