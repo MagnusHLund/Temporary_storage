@@ -2,11 +2,11 @@
 // Check if the form is submitted and the file is uploaded successfully
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
     // Database connection details
-    $servername = "localhost";
-    $username = "root";
+    $servername = "192.168.1.249";
+    $username = "temp";
     $password = "";
     $dbname = "temp_storage";
-    $port = 3336;
+    $port = 3306;
 
     // Create a database connection
     $conn = new mysqli($servername, $username, $password, $dbname, $port);
@@ -35,22 +35,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
     $uploader_ip = $_SERVER["REMOTE_ADDR"];
     $file_path = "downloads/" . $download_filename; // Path to the uploads folder with .zip extension
     $expiration_value = $_POST['expiration'];
-    if ($expiration_value == "forever") {
-        // Cant expire if its forever, so its set to null
-        $expiration_date = null;
-    } else {
-        // sets the selected date, to the expire date
-        $expiration_date = date("Y-m-d H:i:s", strtotime("+{$expiration_value} days"));
-    }
+    
+    // sets the selected date, to the expire date
+    $expiration_date = date("Y-m-d H:i:s", strtotime("+{$expiration_value} days"));
 
     // Move the uploaded file to the desired location
     if (move_uploaded_file($file_tmp_name, $file_path)) {
+        // Get the current date and time in the desired format (e.g., "Y-m-d H:i:s")
+        $current_exact_time = date("Y-m-d H:i:s");
+
         // Prepare the SQL statement to insert data into the database using prepared statements
-        $stmt = $conn->prepare("INSERT INTO uploaded_files (uploader_ip, file_name, file_path, file_size, expiration_date, download_url)
-                                VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO uploaded_files (uploader_ip, file_name, file_path, file_size, upload_date, expiration_date, download_url)
+                                VALUES (?, ?, ?, ?, ?, ?, ?)");
 
         // Bind parameters to the statement
-        $stmt->bind_param("sssiss", $uploader_ip, $originalName, $file_path, $file_size, $expiration_date, $download_url); // Use $download_filename instead of $filename
+        $stmt->bind_param("sssisss", $uploader_ip, $originalName, $file_path, $file_size, $current_exact_time, $expiration_date, $download_url); // Use $download_filename instead of $filename
 
         // Execute the SQL statement
 

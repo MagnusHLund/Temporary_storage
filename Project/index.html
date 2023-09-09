@@ -11,7 +11,12 @@
 </head>
 
 <body>
-    <div id="header-container"></div>
+    <div class="header-container">
+        <ul class="menu">
+          <li><a href="index.html" id="HomeId">Home</a></li>
+          <li><a href="ToS.html" id="TosID">ToS</a></li>
+        </ul>
+      </div>
     <div class="container">
         <h1>File Upload</h1>
         <form id="upload-form" enctype="multipart/form-data">
@@ -22,7 +27,7 @@
                     <label class="file-name" for="file" id="file-text">Choose File</label>
                 </div>
             </div>
-            <label class="file-input" for="expiration">Select Expiration:</label>
+            <label for="expiration">Select Expiration:</label>
             <select name="expiration" id="expiration" required>
                 <option value="1">1 day</option>
                 <option value="2">2 days</option>
@@ -32,12 +37,10 @@
                 <option value="6">6 days</option>
                 <option value="7">7 days</option>
                 <option value="30">30 days</option>
-                <option value="forever">Forever</option>
+                <option value="365">365 days</option>
             </select>
 
-            <div id="password-container">
-
-            </div>
+            <div id="password-container"></div>
 
             <input type="submit" value="Upload">
         </form>
@@ -46,11 +49,17 @@
             <div class="progress" id="progress"></div>
         </div>
         <label id="dataSpeed"></label>
+        <input type="checkbox" id="ToS">
+        <label>By clicking this toggle, you accept the terms of service, which can be read by clicking "ToS" in the header.</label>
     </div>
 
-    <script src="Forever.js"></script>
+    <div class="footer">
+        <label class="footerLabel">Created by Daniel Spurrell and Magnus Lund</label>
+        <a id="githubButton" href="https://github.com/MagnusHLund/Temporary_storage" target="_blank">
+            <img class="github" src="github.svg" alt="Github repository, for this project"></a>
+    </div>
+
     <script src="Filename.js"></script>
-    <script src="Load.js"></script>
     <script src="Progress.js"></script> 
 </body>
 

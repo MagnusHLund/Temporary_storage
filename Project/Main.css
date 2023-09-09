@@ -86,7 +86,8 @@ button:hover,
     height: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
-    position: relative; /* Add this to allow positioning of the percentage text */
+    position: relative;
+    /* Add this to allow positioning of the percentage text */
 }
 
 .progress {
@@ -175,21 +176,6 @@ select {
     cursor: pointer;
 }
 
-.header-container {
-    background-color: var(--bright-orange);
-    padding: 10px;
-    border-radius: 10px;
-    /* Rounded corners for all corners */
-    position: fixed;
-    /* Fix the header at the top of the screen */
-    top: 0;
-    left: 50%;
-    /* Move the header to the center horizontally */
-    transform: translateX(-50%);
-    /* Center the header horizontally */
-    width: 95%;
-}
-
 .menu {
     list-style: none;
     display: flex;
@@ -229,14 +215,47 @@ select {
 #percent {
     color: var(--bright-orange);
     position: absolute;
-    transform: translate(-50%, -50%); /* Center the percentage text */
+    transform: translate(-50%, -50%);
+    /* Center the percentage text */
 }
 
-  #dataSpeed{
+#dataSpeed {
     color: var(--ultra-blue);
     font-size: 16px;
     margin-top: 200px;
-  }
+}
+
+.footer {
+    background-color: var(--bright-orange);
+    border-radius: 10px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    bottom: 0;
+    display: flex; /* Add flex display */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.header-container {
+    background-color: var(--bright-orange);
+    padding: 10px;
+    border-radius: 10px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    top: 0;
+    display: flex; /* Add flex display */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.github {
+    height: 25px;
+    margin-right: 10px; /* Add some spacing between the elements if needed */
+}
 
 @media screen and (max-width: 600px) {
     .header-container {

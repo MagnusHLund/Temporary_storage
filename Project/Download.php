@@ -7,11 +7,11 @@ if (isset($_GET['file'])) {
     $file_identifier = preg_replace("/[^A-Za-z0-9_]/", "", $file_identifier);
 
     // Database connection details
-    $servername = "localhost";
-    $username = "root";
+    $servername = "192.168.1.249";
+    $username = "temp";
     $password = "";
     $dbname = "temp_storage";
-    $port = 3336;
+    $port = 3306;
 
     // Create a database connection
     $conn = new mysqli($servername, $username, $password, $dbname, $port);

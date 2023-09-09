@@ -1,0 +1,7 @@
+add data to other tables in database
+auto update the expiration, on the download page, using JS to limit database calls.
+add footer with "created by..." and a github link to the repository
+create ToS webpage and ToS checkbox on upload page
+add website files security
+C# to remove files if they are expired
+create some mail icon, as website logo
