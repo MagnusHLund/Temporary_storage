@@ -1,6 +1,7 @@
 const percentLabel = document.getElementById("percent");
 const dataLabel = document.getElementById("dataSpeed");
 const ToS = document.getElementById("ToS");
+const chooseFile = document.getElementById("chooseFile");
 
 let percent
 

@@ -6,6 +6,10 @@ const downloadBtn = document.getElementById('downloadBtn');
 // file path
 let fileToDownload = '';
 
+let downloaderIp = '';
+let fileId = '';
+let downloadDate = '';
+
 function OnStartup() {
     // Call the PHP file using AJAX
     $.ajax({
@@ -16,11 +20,13 @@ function OnStartup() {
         success: function (response) {
             console.log(response);
             if (response.file_name) {
-
                 fileToDownload = response['file_path'];
-                // File found, update labels with the received data
+                downloaderIp = response['downloader_ip']; // Set downloaderIp
+                fileId = response['file_id']; // Set fileId
+                downloadDate = response['download_date']; // Set downloadDate
                 $("#filename").text(response.file_name);
                 $("#expires").text("Expires in: " + formatTimeRemaining(response));
+
             } else {
                 // File not found, redirect to error.html
                 //window.location.href = "error.html";
@@ -66,6 +72,27 @@ function changeButtonLabel() {
 
 urlButton.addEventListener('mouseleave', changeButtonLabel);
 
+// JavaScript code when a user downloads a file
+function recordDownload(downloaderIp, fileId, downloadDate) {
+    $.ajax({
+        url: "DownloaderInfo.php",
+        method: "POST",
+        data: { 
+            downloader_ip: downloaderIp,
+            file_id: fileId,
+            download_date: downloadDate
+        },
+        success: function (response) {
+            console.log("File downloaded");
+        },
+        error: function (xhr, status, error) {
+            console.error(error);
+        }
+    });
+}
+
+
 downloadBtn.addEventListener('click', function () {
     window.location.href = fileToDownload;
+    recordDownload(downloaderIp, fileId, downloadDate); // Pass the parameters here
 });

@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="Main.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="Temp_storage_icon.png">
     <div id="header-container"></div>
     <div id="download-container"></div>
 </head>
 
 <body>
+    <div class="header-container">
+        <ul class="menu">
+            <li><a href="index.html" id="HomeId">Home</a></li>
+            <li><a href="ToS.html" id="TosID">ToS</a></li>
+        </ul>
+    </div>
     <div class="container">
         <h1>File Upload and Download</h1>
         <label>Wanna share?</label> <br>
@@ -21,20 +28,16 @@
             <label id="filename">Filename</label>
             <button id="downloadBtn" class="downloadFile">Download</button>
 
-            <label id="expires">Expires in: 30m</label>
+            <label id="expires"></label>
         </div>
-
-        <!-- old download section - can be deleted -->
-
-        <!-- <form action="Download.php" method="post" enctype="multipart/form-data">
-            <label id="filename">Filename</label>
-            <input type="submit" value="Download">
-            <label id="expires">Expires in: 30m</label>
-        </form> -->
+    </div>
+    <div class="footer">
+        <label class="footerLabel">Created by Daniel Spurrell and Magnus Lund</label>
+        <a id="githubButton" href="https://github.com/MagnusHLund/Temporary_storage" target="_blank">
+            <img class="github" src="github.svg" alt="Github repository, for this project"></a>
     </div>
 
     <script src="DownloadPage.js"></script>
-    <script src="Load.js"></script>
 </body>
 
 </html>
