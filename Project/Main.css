@@ -20,15 +20,17 @@ body {
     border-radius: 10px;
     text-align: center;
     justify-content: center;
-    /* Center the content vertically */
     align-items: center;
-    /* Center the content horizontally */
     position: absolute;
     top: 50%;
     left: 0;
     right: 0;
     transform: translateY(-50%);
     margin: auto;
+    
+    /* Add max-height and overflow properties */
+    max-height: 70vh; /* Set a maximum height relative to the viewport height */
+    overflow-y: auto; /* Enable vertical scroll if content exceeds max-height */
 }
 
 h1 {
@@ -261,4 +263,8 @@ select {
     .header-container {
         width: 75%;
     }
+    .container {
+        max-height: none; /* Remove max-height on smaller screens */
+    }
 }
+
