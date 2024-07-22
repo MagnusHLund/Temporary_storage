@@ -1,0 +1,17 @@
+@use './../../variables' as variable;
+.content-box {
+  display: grid;
+  margin: 10vh 0;
+  &__title {
+    place-self: center;
+    border: 0.1rem solid variable.$accent-color;
+    border-bottom: unset;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    padding: 0.2rem 1rem;
+  }
+  &__content {
+    border: 0.1rem solid variable.$accent-color;
+    border-radius: 1rem;
+  }
+}

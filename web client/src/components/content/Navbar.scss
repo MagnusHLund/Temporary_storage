@@ -1,0 +1,25 @@
+@use './../../variables' as variable;
+
+.navbar {
+  background-color: variable.$secondary-color;
+  width: 90vw;
+  height: 6vh;
+  place-self: center;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  display: grid;
+  border: 0.1rem solid variable.$accent-color;
+  border-top: none;
+
+  &__link {
+    text-decoration: none;
+    color: variable.$accent-color;
+    padding: 0 1vw;
+  }
+  &__links {
+    display: flex;
+    place-self: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}

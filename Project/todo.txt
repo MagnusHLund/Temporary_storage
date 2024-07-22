@@ -1,5 +1,0 @@
-add data to other tables in database
-add website files security
-batch file to remove files if they are expired
-auto update the expiration, on the download page, using JS to limit database calls.
-remove last 4 characters from the file name, on download page
