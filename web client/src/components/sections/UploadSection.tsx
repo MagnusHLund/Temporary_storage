@@ -10,7 +10,7 @@ const UploadSection = () => {
   return (
     <section className="upload-section">
       <ContentBox title="Upload">
-        {isUploading && (
+        {!isUploading && (
           <form className="upload-section__form">
             <p>Upload your zip file!</p>
             <Button type="file" text="Select file" required={true} />
@@ -25,7 +25,7 @@ const UploadSection = () => {
           </form>
         )}
 
-        {!isUploading && <ProgressBar uploadPercentage={0} />}
+        {isUploading && <ProgressBar uploadPercentage={0} />}
       </ContentBox>
     </section>
   )

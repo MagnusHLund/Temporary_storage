@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 
 interface ButtonProps extends IStandardInputProps {
   type?: 'button' | 'file' | 'checkbox' | 'submit'
+  className?: string
   transparent?: boolean
   text: string
   required?: boolean
@@ -14,18 +15,19 @@ interface ButtonProps extends IStandardInputProps {
 
 const Button: React.FC<ButtonProps> = ({
   type = 'button',
+  className = '',
   transparent = false,
   text,
   required = false,
   textClickRedirectRoute,
   onclick,
 }) => {
-  const className = cn('button', { transparent: transparent })
+  const fullClassName = cn(`button ${className}`, { transparent: transparent })
 
   return (
     <>
       {type == 'button' && (
-        <button className={className} onClick={onclick}>
+        <button className={fullClassName} onClick={onclick}>
           {text}
         </button>
       )}
@@ -33,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
       {type == 'file' && (
         <input
           type="file"
-          className={className}
+          className={`${fullClassName} file`}
           required={required}
           title={text}
           onClick={onclick}
@@ -44,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({
         <span>
           <input
             type="checkbox"
-            className={className}
+            className={fullClassName}
             required={required}
             title={text}
             onClick={onclick}
@@ -52,7 +54,7 @@ const Button: React.FC<ButtonProps> = ({
           {textClickRedirectRoute != undefined && (
             <NavLink
               to={textClickRedirectRoute}
-              className={className + 'link-text'}
+              className={`${fullClassName} link-text`}
             >
               {text}
             </NavLink>
@@ -64,7 +66,7 @@ const Button: React.FC<ButtonProps> = ({
       {type == 'submit' && (
         <input
           type="submit"
-          className={className}
+          className={fullClassName}
           title={text}
           onClick={onclick}
         ></input>
