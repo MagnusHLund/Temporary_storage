@@ -1,9 +1,14 @@
+import ContentBox from '../content/ContentBox'
 import './TermsOfServiceSection.scss'
 
-interface TermsOfServiceSectionProps {}
-
-const TermsOfServiceSection = ({}) => {
-  return <section></section>
+const TermsOfServiceSection = () => {
+  return (
+    <section>
+      <ContentBox title="Terms of Service">
+        <p></p>
+      </ContentBox>
+    </section>
+  )
 }
 
 export default TermsOfServiceSection

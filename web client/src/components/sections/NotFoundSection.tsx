@@ -1,8 +1,6 @@
 import './NotFoundSection.scss'
 
-interface NotFoundSectionProps {}
-
-const NotFoundSection = ({}) => {
+const NotFoundSection = () => {
   return <section></section>
 }
 
